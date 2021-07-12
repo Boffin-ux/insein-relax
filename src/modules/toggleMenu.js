@@ -1,5 +1,6 @@
-const toggleMenu = () => {
+import togglePopUp from './togglePopUp';
 
+const toggleMenu = () => {
    const popupMenu = document.querySelector('.popup-menu'),
       popupDialogMenu = document.querySelector('.popup-dialog-menu');
 
@@ -19,14 +20,16 @@ const toggleMenu = () => {
       } else if (target.matches('.close-menu') || target.closest('.popup-menu-nav__item')) {
          popupMenu.style.width = '100%';
          popupMenu.classList.remove('active-menu');
+         popupMenu.classList.add('hiden-menu');
          popupDialogMenu.classList.remove('popup-dialog-menu__mobile');
       } else if (!target.closest('.popup-dialog-menu')) {
          popupMenu.style.width = '100%';
          popupMenu.classList.remove('active-menu');
+         popupMenu.classList.add('hiden-menu');
          popupDialogMenu.classList.remove('popup-dialog-menu__mobile');
       }
+      togglePopUp(popupMenu, popupDialogMenu);
    });
-
 };
 
 export default toggleMenu;

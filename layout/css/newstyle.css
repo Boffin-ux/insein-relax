@@ -9,7 +9,15 @@
    transition: 1s;
    -webkit-transition: 1s;
 }
+.hiden-menu {
+   -webkit-transition: 1s;
+   transition: 1s;
+}
 .popup-dialog-menu__mobile{
    -webkit-transform: translate3d(0, 0, 0);
    transform: translate3d(0, 0, 0);
+}
+.popup-privacy_active,
+.price-list_active {
+   visibility: visible;
 }
