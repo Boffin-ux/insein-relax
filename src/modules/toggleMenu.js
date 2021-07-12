@@ -1,4 +1,4 @@
-import togglePopUp from './togglePopUp';
+import { disableScroll, enableScroll } from './blockScrolled';
 
 const toggleMenu = () => {
    const popupMenu = document.querySelector('.popup-menu'),
@@ -27,8 +27,13 @@ const toggleMenu = () => {
          popupMenu.classList.remove('active-menu');
          popupMenu.classList.add('hiden-menu');
          popupDialogMenu.classList.remove('popup-dialog-menu__mobile');
+      } else if (target.matches('.price-list')) {
+         event.preventDefault();
+         popupMenu.style.width = '100%';
+         popupMenu.classList.remove('active-menu');
+         popupDialogMenu.classList.remove('popup-dialog-menu__mobile');
+         disableScroll();
       }
-      togglePopUp(popupMenu, popupDialogMenu);
    });
 };
 

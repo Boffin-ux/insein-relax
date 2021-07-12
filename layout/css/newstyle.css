@@ -18,6 +18,7 @@
    transform: translate3d(0, 0, 0);
 }
 .popup-privacy_active,
-.price-list_active {
+.price-list_active,
+.popup-consultation_active {
    visibility: visible;
 }
