@@ -15,7 +15,7 @@ const togglePopUp = () => {
       });
    });
 
-   linkPrivacy.forEach((event, elem) => {
+   linkPrivacy.forEach((elem) => {
       elem.addEventListener('click', () => {
          popupPrivacy.classList.add('popup-privacy_active');
          disableScroll();
