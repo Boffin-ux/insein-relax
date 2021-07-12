@@ -1,0 +1,15 @@
+.phone-number-show {
+   opacity: 1 !important;
+   margin-top: 25px !important;
+}
+.showArrow{
+   transform : rotateX(180deg) !important;
+}
+.active-menu {
+   transition: 1s;
+   -webkit-transition: 1s;
+}
+.popup-dialog-menu__mobile{
+   -webkit-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+}
