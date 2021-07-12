@@ -3,10 +3,10 @@ import { disableScroll, enableScroll } from './blockScrolled';
 const togglePopUp = () => {
    const popupRepairTypes = document.querySelector('.popup-repair-types'),
       popupPrivacy = document.querySelector('.popup-privacy'),
+      popupConsultation = document.querySelector('.popup-consultation'),
       linkPrivacy = document.querySelectorAll('.link-privacy'),
       priceList = document.querySelectorAll('.price-list'),
-      buttonWide = document.querySelectorAll('.button_wide'),
-      popupConsultation = document.querySelector('.popup-consultation');
+      buttonWide = document.querySelectorAll('.button_wide');
 
    priceList.forEach(item => {
       item.addEventListener('click', event => {
@@ -15,16 +15,15 @@ const togglePopUp = () => {
       });
    });
 
-   linkPrivacy.forEach((elem) => {
-      elem.addEventListener('click', () => {
-         popupPrivacy.classList.add('popup-privacy_active');
-         disableScroll();
-      });
-   });
-
    buttonWide.forEach(elem => {
       elem.addEventListener('click', () => {
          popupConsultation.classList.add('popup-consultation_active');
+      });
+   });
+
+   linkPrivacy.forEach(elem => {
+      elem.addEventListener('click', () => {
+         popupPrivacy.classList.add('popup-privacy_active');
          disableScroll();
       });
    });
