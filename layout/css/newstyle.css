@@ -24,12 +24,15 @@
    visibility: visible;
 }
 .rotatePopUp {
-   bottom: 0 !important;
-   top: 160px !important;
-   padding: 30px 40px 0 !important;
+   padding-top: 35px;
+   transform: translateY(5px);
+   top: 155px;
 }
-.rotatePopUp:before{
-   transform : rotateX(180deg) !important;
+.active-item .rotatePopUp:before {
+   transform: rotateZ(180deg);
+}
+.row-index{
+   z-index: 1;
 }
 .reviews-slider__slide {
    display: none;

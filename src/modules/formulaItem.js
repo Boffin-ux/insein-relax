@@ -4,22 +4,22 @@ const formulaItem = () => {
 
    const changeItem = event => {
       let target = event.target;
-
       if (event.type === 'mouseover' && target.closest('.formula-item__icon')) {
          target = target.closest('.formula-item__icon');
          target.classList.add('active-item');
          getPopUpItem = target.querySelector('.formula-item-popup');
-         isVisible(getPopUpItem);
+         isVisible(getPopUpItem, event);
       } else if (event.type === 'mouseout' && target.closest('.formula-item__icon')) {
+         isVisible(getPopUpItem, event);
          target = target.closest('.formula-item__icon');
          target.classList.remove('active-item');
-         isVisible(getPopUpItem);
       }
    };
    formula.addEventListener('mouseover', changeItem);
    formula.addEventListener('mouseout', changeItem);
 
-   const isVisible = elem => {
+   const isVisible = (elem, event) => {
+      let target = event.target;
       const elemPosition = {
          top: window.pageYOffset + elem.getBoundingClientRect().top,
          bottom: window.pageYOffset + elem.getBoundingClientRect().bottom,
@@ -31,9 +31,13 @@ const formulaItem = () => {
          bottom: window.pageYOffset + document.documentElement.clientHeight,
          heightPage: document.documentElement.clientHeight
       };
-      if (elemPosition.top > windowPosition.top) {
+      if (elemPosition.top > windowPosition.top && target.closest('.row')) {
+         target = event.target.closest('.row');
+         target.classList.remove('row-index');
          elem.classList.remove('rotatePopUp');
-      } else {
+      } else if (target.closest('.row')) {
+         target = event.target.closest('.row');
+         target.classList.add('row-index');
          elem.classList.add('rotatePopUp');
       }
    };
