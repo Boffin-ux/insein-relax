@@ -31,3 +31,12 @@
 .rotatePopUp:before{
    transform : rotateX(180deg) !important;
 }
+.reviews-slider__slide {
+   display: none;
+}
+.reviews-slider__active {
+   display: flex;
+}
+.slider-dots {
+   display: flex;
+}

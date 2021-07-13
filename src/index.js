@@ -7,6 +7,7 @@ import togglePopUp from './modules/togglePopUp';
 import checkInput from './modules/checkInput';
 import formulaItem from './modules/formulaItem';
 import sendForm from './modules/sendForm';
+import sliderReviews from './modules/sliderReviews';
 
 //show Number Phone
 showNumberPhone();
@@ -22,3 +23,5 @@ checkInput();
 formulaItem();
 //send-ajax-form
 sendForm();
+//sliderReviews
+sliderReviews();
