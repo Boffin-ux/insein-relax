@@ -19,7 +19,8 @@
 }
 .popup-privacy_active,
 .price-list_active,
-.popup-consultation_active {
+.popup-consultation_active,
+.popup-thank-active {
    visibility: visible;
 }
 .rotatePopUp {

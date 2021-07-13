@@ -1,3 +1,5 @@
+import { disableScroll, enableScroll } from './blockScrolled';
+
 const sendForm = () => {
    const errorMessage = 'Что-то пошло не так...',
       preload = `
@@ -41,6 +43,31 @@ const sendForm = () => {
    statusMessage.style.color = '#000';
    statusMessage.style.paddingTop = '30px';
 
+   const showThankPopUp = () => {
+      const popupThank = document.querySelector('.popup-thank');
+      popupThank.addEventListener('click', event => {
+         let target = event.target;
+         if (target.classList.contains('close')) {
+            popupThank.classList.remove('popup-thank-active');
+            enableScroll();
+         } else {
+            target = target.closest('.popup-thank-bg');
+            if (!target) {
+               popupThank.classList.remove('popup-thank-active');
+               enableScroll();
+            }
+         }
+      });
+      setTimeout(() => {
+         popupThank.classList.add('popup-thank-active');
+      }, 500);
+      disableScroll();
+      setTimeout(() => {
+         popupThank.classList.remove('popup-thank-active');
+         enableScroll();
+      }, 5000);
+   };
+
    const postData = formData => fetch('../layout/server.php', {
       method: 'POST',
       body: formData,
@@ -71,6 +98,7 @@ const sendForm = () => {
                inputs.forEach(item => item.value = '');
                checkBox.checked = false;
                checkBox.value = 'on';
+               showThankPopUp();
             })
             .catch(error => {
                statusMessage.textContent = errorMessage;
