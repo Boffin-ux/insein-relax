@@ -22,8 +22,7 @@ const sendForm = () => {
          <animate attributeName="height" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" 
          values="59.45000000000001;41;41" keySplines="0 0.5 0.5 1;0 0.5 0.5 1"></animate>
       </rect>
-      `,
-      successMessage = 'Спасибо! Мы скоро с вами свяжемся...';
+      `;
 
    const formFeedBackOne = document.getElementById('feedback1'),
       formFeedBackTwo = document.getElementById('feedback2'),
@@ -94,7 +93,7 @@ const sendForm = () => {
                if (response.status !== 200) {
                   throw new Error('status network not 200');
                }
-               statusMessage.textContent = successMessage;
+               statusMessage.textContent = '';
                inputs.forEach(item => item.value = '');
                checkBox.checked = false;
                checkBox.value = 'on';
