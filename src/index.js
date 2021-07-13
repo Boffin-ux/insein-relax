@@ -9,6 +9,7 @@ import formulaItem from './modules/formulaItem';
 import sendForm from './modules/sendForm';
 import sliderReviews from './modules/sliderReviews';
 import accordion from './modules/accordion';
+import popupDialogTransparency from './modules/popupDialogTransparency';
 
 //show Number Phone
 showNumberPhone();
@@ -28,3 +29,5 @@ sendForm();
 sliderReviews();
 //accordion
 accordion();
+//popupDialogTransparency
+popupDialogTransparency();

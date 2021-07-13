@@ -1,4 +1,5 @@
-import { disableScroll, enableScroll } from './blockScrolled';
+import { disableScroll } from './blockScrolled';
+import closedPopUp from './closedPopUp';
 
 const togglePopUp = () => {
    const popupRepairTypes = document.querySelector('.popup-repair-types'),
@@ -27,20 +28,6 @@ const togglePopUp = () => {
          disableScroll();
       });
    });
-
-   const closedPopUp = (event, elem, removeClass, outBox) => {
-      let target = event.target;
-      if (target.classList.contains('close')) {
-         elem.classList.remove(removeClass);
-         enableScroll();
-      } else {
-         target = target.closest(outBox);
-         if (!target) {
-            elem.classList.remove(removeClass);
-            enableScroll();
-         }
-      }
-   };
 
    popupRepairTypes.addEventListener('click', event => {
       closedPopUp(event, popupRepairTypes, 'price-list_active', '.popup-dialog-privacy');

@@ -20,7 +20,8 @@
 .popup-privacy_active,
 .price-list_active,
 .popup-consultation_active,
-.popup-thank-active {
+.popup-thank-active,
+.popup-transparency-active {
    visibility: visible;
 }
 .rotatePopUp {
