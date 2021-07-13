@@ -40,7 +40,7 @@ const sendForm = () => {
    const statusMessage = document.createElement('div');
    statusMessage.style.cssText = 'font-size: 1.2rem';
    statusMessage.style.color = '#000';
-   statusMessage.style.paddingTop = '30px';
+   statusMessage.style.paddingTop = '20px';
 
    const showThankPopUp = () => {
       const popupThank = document.querySelector('.popup-thank');
