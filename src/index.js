@@ -5,6 +5,8 @@ import toggleMenu from './modules/toggleMenu';
 import scrolled from './modules/scrolled';
 import togglePopUp from './modules/togglePopUp';
 import checkInput from './modules/checkInput';
+import formulaItem from './modules/formulaItem';
+import sendForm from './modules/sendForm';
 
 //show Number Phone
 showNumberPhone();
@@ -16,3 +18,7 @@ scrolled();
 togglePopUp();
 //Сheck input
 checkInput();
+//formulaItem
+formulaItem();
+//send-ajax-form
+sendForm();

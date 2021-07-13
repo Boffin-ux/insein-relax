@@ -22,3 +22,11 @@
 .popup-consultation_active {
    visibility: visible;
 }
+.rotatePopUp {
+   bottom: 0 !important;
+   top: 160px !important;
+   padding: 30px 40px 0 !important;
+}
+.rotatePopUp:before{
+   transform : rotateX(180deg) !important;
+}
