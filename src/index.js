@@ -14,6 +14,7 @@ import blockPortfolio from './modules/blockPortfolio';
 import repairTypesLoad from './modules/repairTypesLoad';
 import navTypesRepair from './modules/navTypesRepair';
 import adaptiveSectionDocuments from './modules/adaptiveSectionDocuments';
+import formulaSider from './modules/formulaSider';
 
 //show Number Phone
 showNumberPhone();
@@ -43,3 +44,5 @@ blockPortfolio();
 navTypesRepair();
 //adaptiveSectionDocuments
 adaptiveSectionDocuments();
+//formulaSider
+formulaSider();
