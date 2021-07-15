@@ -53,7 +53,6 @@ const repairTypesLoad = (data) => {
             popupRepairTypesContentTable.innerHTML = '';
             target = target.closest('.popup-repair-types-nav__item');
             popupRepairNavItem.forEach(item => {
-               console.log('item: ', item);
                item.classList.remove('active');
             });
             target.classList.add('active');
