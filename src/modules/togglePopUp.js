@@ -30,10 +30,10 @@ const togglePopUp = () => {
    });
 
    popupRepairTypes.addEventListener('click', event => {
-      closedPopUp(event, popupRepairTypes, 'price-list_active', '.popup-dialog-privacy');
+      closedPopUp(event, popupRepairTypes, 'price-list_active', '.popup-dialog-repair-types');
    });
    popupPrivacy.addEventListener('click', event => {
-      closedPopUp(event, popupPrivacy, 'popup-privacy_active', '.popup-dialog-repair-types');
+      closedPopUp(event, popupPrivacy, 'popup-privacy_active', '.popup-dialog-privacy');
    });
    popupConsultation.addEventListener('click', event => {
       closedPopUp(event, popupConsultation, 'popup-consultation_active', '.feedback-wrap');

@@ -21,7 +21,8 @@
 .price-list_active,
 .popup-consultation_active,
 .popup-thank-active,
-.popup-transparency-active {
+.popup-transparency-active,
+.popup-portfolio-active {
    visibility: visible;
 }
 .rotatePopUp {
@@ -35,9 +36,11 @@
 .row-index{
    z-index: 1;
 }
+.popup-transparency-slider__slide,
 .reviews-slider__slide {
    display: none;
 }
+.popup-transparency-slider__active,
 .reviews-slider__active {
    display: flex;
 }

@@ -9,7 +9,10 @@ import formulaItem from './modules/formulaItem';
 import sendForm from './modules/sendForm';
 import sliderReviews from './modules/sliderReviews';
 import accordion from './modules/accordion';
-import popupDialogTransparency from './modules/popupDialogTransparency';
+import popupTransparencySlide from './modules/popupTransparencySlide';
+import blockPortfolio from './modules/blockPortfolio';
+import repairTypesLoad from './modules/repairTypesLoad';
+import navTypesRepair from './modules/navTypesRepair';
 
 //show Number Phone
 showNumberPhone();
@@ -29,5 +32,11 @@ sendForm();
 sliderReviews();
 //accordion
 accordion();
-//popupDialogTransparency
-popupDialogTransparency();
+//popupTransparencySlide
+popupTransparencySlide();
+//blockPortfolio
+blockPortfolio();
+//repairTypesLoad
+// repairTypesLoad();
+//navTypesRepair
+navTypesRepair();
