@@ -13,6 +13,7 @@ import popupTransparencySlide from './modules/popupTransparencySlide';
 import blockPortfolio from './modules/blockPortfolio';
 import repairTypesLoad from './modules/repairTypesLoad';
 import navTypesRepair from './modules/navTypesRepair';
+import adaptiveSectionDocuments from './modules/adaptiveSectionDocuments';
 
 //show Number Phone
 showNumberPhone();
@@ -40,3 +41,5 @@ blockPortfolio();
 // repairTypesLoad();
 //navTypesRepair
 navTypesRepair();
+//adaptiveSectionDocuments
+adaptiveSectionDocuments();
