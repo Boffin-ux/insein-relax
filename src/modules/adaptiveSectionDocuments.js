@@ -40,9 +40,11 @@ const adaptiveSectionDocuments = () => {
       } else if (widthPage < 745 && widthPage > 576) {
          widthSlide = widthPage - 24;
          addStyle();
+         showSlider();
       } else if (widthPage < 576) {
          widthSlide = 290;
          addStyle();
+         showSlider();
       } else if (widthPage > 1091) {
          const getStyle = document.querySelector('#adaptiveBlockDocument-style');
          if (getStyle) {

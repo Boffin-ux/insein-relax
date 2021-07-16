@@ -10,11 +10,12 @@ import sendForm from './modules/sendForm';
 import sliderReviews from './modules/sliderReviews';
 import accordion from './modules/accordion';
 import popupTransparencySlide from './modules/popupTransparencySlide';
-import blockPortfolio from './modules/blockPortfolio';
+import sectionPortfolio from './modules/sectionPortfolio';
 import repairTypesLoad from './modules/repairTypesLoad';
 import navTypesRepair from './modules/navTypesRepair';
 import adaptiveSectionDocuments from './modules/adaptiveSectionDocuments';
 import formulaSider from './modules/formulaSider';
+import sliderPortfolio from './modules/sliderPortfolio';
 
 //show Number Phone
 showNumberPhone();
@@ -37,12 +38,14 @@ accordion();
 //popupTransparencySlide
 popupTransparencySlide();
 //blockPortfolio
-blockPortfolio();
+sectionPortfolio();
 //repairTypesLoad
-// repairTypesLoad();
+repairTypesLoad();
 //navTypesRepair
 navTypesRepair();
 //adaptiveSectionDocuments
 adaptiveSectionDocuments();
 //formulaSider
 formulaSider();
+//sliderPortfolio
+sliderPortfolio();

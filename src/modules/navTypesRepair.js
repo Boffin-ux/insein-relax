@@ -74,7 +74,7 @@ const navTypesRepair = () => {
             currentSlide = slideLength - 1;
             transformSlide = -(currentSlide * 547);
          }
-      }
+      };
       if (slideLength) {
          ifSlideLength();
       } else {
