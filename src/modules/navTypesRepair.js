@@ -2,6 +2,7 @@ const navTypesRepair = () => {
    const repairTypes = document.getElementById('repair-types'),
       buttonTypes = document.querySelectorAll('.repair-types-nav__item'),
       repairTypesSlider = document.querySelectorAll('.repair-types-slider>div'),
+      navListRepair = document.querySelector('.nav-list-repair'),
       arrButton = Array.from(buttonTypes),
       sliderContentCurrent = document.querySelector('.repair-types-counter>.slider-counter-content__current'),
       sliderContentTotal = document.querySelector('.repair-types-counter>.slider-counter-content__total');
@@ -9,7 +10,9 @@ const navTypesRepair = () => {
    let indexArr,
       currentSlide = 0,
       transformSlide = 0,
-      slideLength = 0;
+      slideLength = 0,
+      transformSlideMobile = 0,
+      currentSlideMobile = 0;
 
    sliderContentTotal.textContent = 5;
    sliderContentCurrent.textContent = currentSlide + 1;
@@ -21,6 +24,13 @@ const navTypesRepair = () => {
    const nextSlide = (repairTypesSlider, index = 0, transformSlide, currentSlide) => {
       repairTypesSlider[index].style.transform = `translateY(${transformSlide}px)`;
       sliderContentCurrent.textContent = currentSlide + 1;
+   };
+
+   const prevSlideMobile = (navListRepair, transformSlideMobile) => {
+      navListRepair.style.transform = `translateX(${transformSlideMobile}px)`;
+   };
+   const nextSlideMobile = (navListRepair, transformSlideMobile) => {
+      navListRepair.style.transform = `translateX(${transformSlideMobile}px)`;
    };
 
    repairTypes.addEventListener('click', event => {
@@ -55,16 +65,38 @@ const navTypesRepair = () => {
          });
       }
       prevSlide(repairTypesSlider, indexArr, transformSlide, currentSlide);
+      prevSlideMobile(navListRepair, transformSlideMobile);
 
-      if (!target.closest('.slider-arrow')) {
+      if (target.closest('.slider-arrow')) {
+         if (target.closest('#repair-types-arrow_right')) {
+            transformSlide -= 547;
+            currentSlide++;
+         }
+         if (target.closest('#repair-types-arrow_left')) {
+            transformSlide += 547;
+            currentSlide--;
+         }
+      } else if (target.closest('.nav-arrow')) {
+         if (target.closest('#nav-arrow-repair-right_base')) {
+            transformSlideMobile -= 98;
+            currentSlideMobile++;
+         }
+         if (target.closest('#nav-arrow-repair-left_base')) {
+            transformSlideMobile += 98;
+            currentSlideMobile--;
+         }
+      } else {
          return;
-      } else if (target.closest('#repair-types-arrow_right')) {
-         transformSlide -= 547;
-         currentSlide++;
-      } else if (target.closest('#repair-types-arrow_left')) {
-         transformSlide += 547;
-         currentSlide--;
       }
+
+      if (currentSlideMobile >= arrButton.length) {
+         currentSlideMobile = 0;
+         transformSlideMobile = 0;
+      } else if (currentSlideMobile < 0) {
+         currentSlideMobile = arrButton.length - 1;
+         transformSlideMobile = -(currentSlideMobile * 98);
+      }
+
       const ifSlideLength = () => {
          if (currentSlide >= slideLength) {
             currentSlide = 0;
@@ -91,6 +123,7 @@ const navTypesRepair = () => {
          ifSlideLength();
       }
       nextSlide(repairTypesSlider, indexArr, transformSlide, currentSlide);
+      nextSlideMobile(navListRepair, transformSlideMobile);
 
    });
 };
