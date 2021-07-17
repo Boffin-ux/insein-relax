@@ -176,7 +176,6 @@ const addNewItem = event => {
 };
 const saveService = (event) => {
    const id = getIdItemEdit;
-   console.log('id: ', id);
    event.preventDefault();
    const editItemformData = new FormData();
    editItemformData.append('type', getInputType.value);
@@ -264,7 +263,7 @@ const openAddService = event => {
    if (target.closest('.button-ui_firm') && modalHeader.textContent === 'Добавение новой услуги') {
       addNewService();
    } else if (target.closest('.button-ui_firm') && modalHeader.textContent === 'Редактировать услугу') {
-      saveItem(getIdItemEdit);
+      saveItem();
    }
 };
 
