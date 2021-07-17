@@ -38,9 +38,13 @@ const sendForm = () => {
       checkBoxFeedback = document.getElementById('checkbox6');
 
    const statusMessage = document.createElement('div');
-   statusMessage.style.cssText = 'font-size: 1.2rem';
+   statusMessage.style.cssText = 'font-size: 1.3rem';
    statusMessage.style.color = '#000';
    statusMessage.style.paddingTop = '20px';
+   statusMessage.style.position = 'absolute';
+   statusMessage.style.margin = '30px';
+   statusMessage.style.bottom = '-5px';
+   statusMessage.style.fontWeight = 'bold';
 
    const showThankPopUp = () => {
       const popupThank = document.querySelector('.popup-thank');

@@ -372,6 +372,10 @@ body {
 .text-warning{
     color: tomato;
 }
+.warning-hide-password,
+.warning-hide-name {
+    display: none;
+}
 
 .label sup {
     font-size: 10px;
@@ -532,7 +536,9 @@ body {
 #modal {
     display: none;
 }
-
+.modal-active{
+    display: flex !important;
+}
 .modal {
     display: flex;
     flex-direction: column;
