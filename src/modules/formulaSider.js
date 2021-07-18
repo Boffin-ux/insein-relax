@@ -34,10 +34,39 @@ const formulaSider = () => {
       document.head.appendChild(style);
    };
 
+   const addStyleMobile = () => {
+      let style = document.getElementById('formulaSider-style');
+      if (!style) {
+         style = document.createElement('style');
+         style.id = 'formulaSider-style';
+      }
+      style.textContent = `
+      .formula-slider-wrap{
+         overflow: hidden !important;
+      }
+      .formula-slider{
+         transform: translateX(-290px);
+         align-items: flex-start !important;
+         display: flex !important;
+         transition: transform 0.5s !important;
+      }
+      .formula-item{
+         display: flex !important;
+         align-items: center;
+         justify-content: center;
+         min-width: 290px !important;
+      }
+      `;
+      document.head.appendChild(style);
+   };
+
    const checkResponse = () => {
       widthPage = document.documentElement.clientWidth;
-      if (widthPage < 1025) {
+      if (widthPage < 1025 && widthPage > 575) {
          addStyle();
+         showSlider();
+      } else if (widthPage < 576) {
+         addStyleMobile();
          showSlider();
       } else if (widthPage > 1025) {
          const getStyle = document.querySelector('#formulaSider-style');

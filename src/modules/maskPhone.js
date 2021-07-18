@@ -16,10 +16,10 @@ function maskPhone(selector, masked = '+7 (___) ___-__-__') {
 		let reg = template.substr(0, this.value.length).replace(/_+/g,
 			a => "\\d{1," + a.length + "}").replace(/[+()]/g, "\\$&");
 		reg = new RegExp("^" + reg + "$");
-		if (!reg.test(this.value) || this.value.length < 8 || keyCode > 47 && keyCode < 58) {
+		if (!reg.test(this.value) || this.value.length < 18 || keyCode > 47 && keyCode < 58) {
 			this.value = newValue;
 		}
-		if (event.type === "blur" && this.value.length < 8) {
+		if (event.type === "blur" && this.value.length < 18) {
 			this.value = "";
 		}
 

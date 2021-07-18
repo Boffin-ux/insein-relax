@@ -1,7 +1,7 @@
 const sliderReviews = () => {
    const slide = document.querySelectorAll('.reviews-slider__slide'),
       dot = document.querySelectorAll('.dot'),
-      slider = document.querySelector('.reviews');
+      slider = document.getElementById('reviews');
 
    let currentSlide = 0,
       interval;
@@ -31,16 +31,14 @@ const sliderReviews = () => {
 
    slider.addEventListener('click', event => {
       event.preventDefault();
-      const target = event.target;
+      let target = event.target;
 
-      if (!target.matches('.slider-arrow, .dot')) {
-         return;
-      }
       prevSlide(slide, currentSlide, 'reviews-slider__active');
       prevSlide(dot, currentSlide, 'dot_active');
-      if (target.matches('#reviews-arrow_right')) {
+      if (target.closest('#reviews-arrow_right')) {
          currentSlide++;
-      } else if (target.matches('#reviews-arrow_left')) {
+      } else if (target.closest('#reviews-arrow_left')) {
+         target = target.closest;
          currentSlide--;
       } else if (target.matches('.dot')) {
          dot.forEach((elem, index) => {
