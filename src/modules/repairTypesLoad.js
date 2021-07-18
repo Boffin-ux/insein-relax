@@ -69,7 +69,7 @@ const repairTypesLoad = () => {
       changeType();
    };
 
-   fetch('../../crm-backend/db.json')
+   fetch('../crm-backend/db.json')
       .then(response => response.json())
       .then(data => showRepairTypes(data))
       .catch(error => console.error(error));
