@@ -7,34 +7,86 @@ const navTypesRepair = () => {
       sliderContentCurrent = document.querySelector('.repair-types-counter>.slider-counter-content__current'),
       sliderContentTotal = document.querySelector('.repair-types-counter>.slider-counter-content__total');
 
-   let indexArr,
+   let indexArr = 0,
       currentSlide = 0,
       transformSlide = 0,
       slideLength = 0,
       transformSlideMobile = 0,
-      currentSlideMobile = 0;
+      currentSlideMobile = 0,
+      widthPage = document.documentElement.clientWidth,
+      size = 575;
 
    sliderContentTotal.textContent = 5;
    sliderContentCurrent.textContent = currentSlide + 1;
 
-   const prevSlide = (repairTypesSlider, index = 0, transformSlide, currentSlide) => {
-      repairTypesSlider[index].style.transform = `translateY(${transformSlide}px)`;
-      sliderContentCurrent.textContent = currentSlide + 1;
-   };
-   const nextSlide = (repairTypesSlider, index = 0, transformSlide, currentSlide) => {
-      repairTypesSlider[index].style.transform = `translateY(${transformSlide}px)`;
-      sliderContentCurrent.textContent = currentSlide + 1;
+   const checkResponse = () => {
+      repairTypes.removeEventListener('click', startRepairTypes);
+      widthPage = document.documentElement.clientWidth;
+      if (widthPage > 575) {
+         size = 575;
+         currentSlide = 0;
+         sliderContentCurrent.textContent = currentSlide + 1;
+         repairTypesSlider[indexArr].style.transform = 'translateY(0)';
+         repairTypesSlider[indexArr].style.display = 'none';
+
+         repairTypesSlider[0].style.transform = 'translateY(0)';
+         repairTypesSlider[0].style.display = 'block';
+         repairTypesSlider[0].classList.add('active');
+         transformSlide = 0;
+         slideLength = 0;
+         buttonTypes.forEach(item => {
+            if (item.classList.contains('active')) {
+               item.classList.remove('active');
+            } else {
+               return;
+            }
+         });
+         buttonTypes[0].classList.add('active');
+         indexArr = 0;
+      } else if (widthPage < 576) {
+         size = 260;
+         currentSlide = 0;
+         sliderContentCurrent.textContent = currentSlide + 1;
+         repairTypesSlider[indexArr].style.transform = 'translateY(0)';
+         repairTypesSlider[indexArr].style.display = 'none';
+
+         repairTypesSlider[0].style.transform = 'translateY(0)';
+         repairTypesSlider[0].style.display = 'block';
+         repairTypesSlider[0].classList.add('active');
+         transformSlide = 0;
+         slideLength = 0;
+         buttonTypes.forEach(item => {
+            if (item.classList.contains('active')) {
+               item.classList.remove('active');
+            } else {
+               return;
+            }
+         });
+         buttonTypes[0].classList.add('active');
+         indexArr = 0;
+      }
+      repairTypes.addEventListener('click', startRepairTypes);
    };
 
-   const prevSlideMobile = (navListRepair, transformSlideMobile) => {
-      navListRepair.style.transform = `translateX(${transformSlideMobile}px)`;
-   };
-   const nextSlideMobile = (navListRepair, transformSlideMobile) => {
-      navListRepair.style.transform = `translateX(${transformSlideMobile}px)`;
-   };
-
-   repairTypes.addEventListener('click', event => {
+   const startRepairTypes = event => {
       let target = event.target;
+
+      const prevSlide = (repairTypesSlider, index = 0, transformSlide, currentSlide) => {
+         repairTypesSlider[index].style.transform = `translateY(${transformSlide}px)`;
+         sliderContentCurrent.textContent = currentSlide + 1;
+      };
+      const nextSlide = (repairTypesSlider, index = 0, transformSlide, currentSlide) => {
+         repairTypesSlider[index].style.transform = `translateY(${transformSlide}px)`;
+         sliderContentCurrent.textContent = currentSlide + 1;
+      };
+
+      const prevSlideMobile = (navListRepair, transformSlideMobile) => {
+         navListRepair.style.transform = `translateX(${transformSlideMobile}px)`;
+      };
+      const nextSlideMobile = (navListRepair, transformSlideMobile) => {
+         navListRepair.style.transform = `translateX(${transformSlideMobile}px)`;
+      };
+
       if (target.closest('.repair-types-nav__item')) {
          target = target.closest('.repair-types-nav__item');
          indexArr = arrButton.indexOf(target);
@@ -69,11 +121,11 @@ const navTypesRepair = () => {
 
       if (target.closest('.slider-arrow')) {
          if (target.closest('#repair-types-arrow_right')) {
-            transformSlide -= 547;
+            transformSlide -= size;
             currentSlide++;
          }
          if (target.closest('#repair-types-arrow_left')) {
-            transformSlide += 547;
+            transformSlide += size;
             currentSlide--;
          }
       } else if (target.closest('.nav-arrow')) {
@@ -124,8 +176,12 @@ const navTypesRepair = () => {
       }
       nextSlide(repairTypesSlider, indexArr, transformSlide, currentSlide);
       nextSlideMobile(navListRepair, transformSlideMobile);
+   };
 
-   });
+   repairTypes.addEventListener('click', startRepairTypes);
+
+   checkResponse();
+   window.addEventListener('resize', checkResponse);
 };
 
 export default navTypesRepair;

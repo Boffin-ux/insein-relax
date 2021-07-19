@@ -35,10 +35,10 @@ const formulaSider = () => {
    };
 
    const addStyleMobile = () => {
-      let style = document.getElementById('formulaSider-style');
+      let style = document.getElementById('formulaSider-style-mobile');
       if (!style) {
          style = document.createElement('style');
-         style.id = 'formulaSider-style';
+         style.id = 'formulaSider-style-mobile';
       }
       style.textContent = `
       .formula-slider-wrap{
@@ -61,22 +61,37 @@ const formulaSider = () => {
    };
 
    const checkResponse = () => {
+      const getStyle = document.querySelector('#formulaSider-style');
+      const getStyleMobile = document.querySelector('#formulaSider-style-mobile');
+
+      formulaSliderWrap.removeEventListener('click', startFormulaSlider);
+
       widthPage = document.documentElement.clientWidth;
       if (widthPage < 1025 && widthPage > 575) {
+         widthPage = document.documentElement.clientWidth;
+         if (getStyleMobile) {
+            getStyleMobile.remove();
+         }
          addStyle();
-         showSlider();
       } else if (widthPage < 576) {
-         addStyleMobile();
-         showSlider();
-      } else if (widthPage > 1025) {
-         const getStyle = document.querySelector('#formulaSider-style');
+         widthPage = document.documentElement.clientWidth;
          if (getStyle) {
             getStyle.remove();
          }
+         addStyleMobile();
+      } else if (widthPage > 1025) {
+         if (getStyle) {
+            getStyle.remove();
+         } else if (getStyleMobile) {
+            getStyleMobile.remove();
+         }
       }
+      formulaSliderWrap.addEventListener('click', startFormulaSlider);
    };
 
-   const showSlider = () => {
+   const startFormulaSlider = event => {
+      const target = event.target;
+
       let newformulaSlider = document.querySelector('.formula-slider');
       let newFormulaItem = document.querySelectorAll('.formula-slider__slide');
 
@@ -93,24 +108,24 @@ const formulaSider = () => {
          newFormulaItem[0].classList.add('active-item');
       };
 
-      formulaSliderWrap.addEventListener('click', event => {
-         const target = event.target;
+      if (!target.closest('.slider-arrow')) {
+         return;
+      } else if (target.closest('#formula-arrow_right')) {
+         newformulaSlider = document.querySelector('.formula-slider');
+         newFormulaItem = document.querySelectorAll('.formula-slider__slide');
+         nextSlide(newformulaSlider, newFormulaItem);
 
-         if (!target.closest('.slider-arrow')) {
-            return;
-         } else if (target.closest('#formula-arrow_right')) {
-            newformulaSlider = document.querySelector('.formula-slider');
-            newFormulaItem = document.querySelectorAll('.formula-slider__slide');
-            nextSlide(newformulaSlider, newFormulaItem);
+      } else if (target.closest('#formula-arrow_left')) {
+         newformulaSlider = document.querySelector('.formula-slider');
+         newFormulaItem = document.querySelectorAll('.formula-slider__slide');
+         prevSlide(newformulaSlider, newFormulaItem);
+      }
 
-         } else if (target.closest('#formula-arrow_left')) {
-            newformulaSlider = document.querySelector('.formula-slider');
-            newFormulaItem = document.querySelectorAll('.formula-slider__slide');
-            prevSlide(newformulaSlider, newFormulaItem);
-         }
-
-      });
    };
+
+   formulaSliderWrap.addEventListener('click', startFormulaSlider);
+
+
    checkResponse();
    window.addEventListener('resize', checkResponse);
 };
