@@ -35,6 +35,7 @@ const navTypesRepair = () => {
          transformSlide = 0;
          slideLength = 0;
          transformSlideMobile = 0;
+         navListRepair.style.transform = `translateX(${transformSlideMobile}px)`;
 
          buttonTypes.forEach(item => {
             if (item.classList.contains('active')) {
@@ -58,6 +59,7 @@ const navTypesRepair = () => {
          transformSlide = 0;
          slideLength = 0;
          transformSlideMobile = 0;
+         navListRepair.style.transform = `translateX(${transformSlideMobile}px)`;
 
          buttonTypes.forEach(item => {
             if (item.classList.contains('active')) {
