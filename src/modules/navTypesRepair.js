@@ -34,6 +34,8 @@ const navTypesRepair = () => {
          repairTypesSlider[0].classList.add('active');
          transformSlide = 0;
          slideLength = 0;
+         transformSlideMobile = 0;
+
          buttonTypes.forEach(item => {
             if (item.classList.contains('active')) {
                item.classList.remove('active');
@@ -55,6 +57,8 @@ const navTypesRepair = () => {
          repairTypesSlider[0].classList.add('active');
          transformSlide = 0;
          slideLength = 0;
+         transformSlideMobile = 0;
+
          buttonTypes.forEach(item => {
             if (item.classList.contains('active')) {
                item.classList.remove('active');

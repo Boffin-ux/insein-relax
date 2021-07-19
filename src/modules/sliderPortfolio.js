@@ -111,6 +111,7 @@ const sliderPortfolio = () => {
          currentSlideMobile = 0;
          widthSlide = parseFloat(((widthSliderWrap / 3)).toFixed(2));
          slideLength = 3;
+         addStyle();
       }
       portfolioSliderWrap.addEventListener('click', runSlider);
    };
